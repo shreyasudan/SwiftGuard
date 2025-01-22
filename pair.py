@@ -20,8 +20,8 @@ class PAIR:
     def __init__(self, target_model='gpt-3.5-turbo',
                  attacker_model = 'gpt-3.5-turbo',
                  judge_model = 'gpt-4o',
-                 judge__system_filepath= 'judge_system.txt',
-                 attacker_system_filepath='roleplay_system.txt', 
+                 judge__system_filepath= 'assets/judge_system.txt',
+                 attacker_system_filepath='assets/roleplay_system.txt', 
                  threshold=10):
         """
         Initializes with the Model choice from the OpenAI Suite, the 
@@ -42,7 +42,7 @@ class PAIR:
             content = f.read()
             return content
 
-    def read_judge_system(self, filename='judge_system.txt'):
+    def read_judge_system(self, filename='assets/judge_system.txt'):
         with open(filename, encoding='utf-8') as f:
             content = f.read()
             return content
