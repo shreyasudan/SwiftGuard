@@ -22,5 +22,5 @@ This notebook contains basic EDA, exploring semantic and syntantic features of t
 This notebook contains functions useful to apply transformations on existing prompts via an LLM.
 
 ## LLM Classifier
-This notebook contains a preliminary classifier which sends prompts down an LLM to weed out immediately benign ones. 
+This notebook contains a preliminary classifier which sends prompts down an LLM to weed out obviously benign ones. 
 This classifier will determine which prompts get sent down the pipeline to further check its status. 
