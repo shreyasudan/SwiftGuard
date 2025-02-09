@@ -24,3 +24,7 @@ This notebook contains functions useful to apply transformations on existing pro
 ## LLM Classifier
 This notebook contains a preliminary classifier which sends prompts down an LLM to weed out obviously benign ones. 
 This classifier will determine which prompts get sent down the pipeline to further check its status. 
+
+
+### NOTE: 
+All jupyter notebooks can be accessed and ran locally with a togetherAI API key. To get more sucessfully jailbroken prompts, prompt dataset can be run again. Transforming and LLM Classifier both contain reproducable functions with built-in instructions. 
