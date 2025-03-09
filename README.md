@@ -4,6 +4,29 @@ SwiftGuard is an algorithm designed to protect LLMs from malicious prompts attem
 With the implemenation of SwiftGuard, LLMs can be protected from being tricked into responding with illegal or harmful information, at little
 to no cost to the typical user. 
 
+## Setup
+
+### **Step 1: Creating Enviorment**
+```bash
+conda create -n swiftguard python=3.10
+conda activate swiftguard
+```
+
+### **Step 2: Installing packages**
+```bash
+cd spd
+cd jailbreakbench
+pip install jailbreakbench
+```
+
+### **Step 2: Installing packages**
+```bash
+cd ..
+cd ..
+pip install -r requirements.txt
+```
+
+
 ## Current Progress
 This repository currently has a few notebooks outlining progress made so far in the creation of SwiftGuard
 - [Prompt Dataset](#prompt-dataset)
