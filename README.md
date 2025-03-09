@@ -19,7 +19,7 @@ cd jailbreakbench
 pip install jailbreakbench
 ```
 
-### **Step 2: Installing packages**
+### **Step 3: Installing additional packages**
 ```bash
 cd ..
 cd ..
