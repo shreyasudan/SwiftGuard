@@ -73,24 +73,15 @@ class LLMLiteLLM_SPD(LLM):
 
         
         # Adding responses variable to look at LLM responses
-        responses = [output["choices"][0]["message"]["content"] for output in outputs]
+        response = [output["choices"][0]["message"]["content"] for output in outputs]
         #print("MODEL_RESPONSE:", responses)
 
-        # Use StringClassifier to check which responses are jailbroken
-        classifier = StringClassifier()
-        jailbroken_mask = classifier.classify_responses([], responses)  
-    
-        # Prune outputs: Keep only outputs classified as jailbroken
-        pruned_outputs = [outputs[i] for i, is_jailbroken in enumerate(jailbroken_mask) if is_jailbroken]
-
-        if not pruned_outputs:
-            print("No jailbroken responses detected.")
-            return np.array([])
+       
         
-        logits = [[[x['logprob'] for x in y['top_logprobs']] for y in output["choices"][0]["logprobs"]['content']] for output in pruned_outputs]
+        logits = [[[x['logprob'] for x in y['top_logprobs']] for y in output["choices"][0]["logprobs"]['content']] for output in outputs]
         
         for l in range(len(logits)):
             while len(logits[l]) < self.generation_params["max_tokens"]:
                 logits[l].append([0,0,0,0,0])  
-        
-        return np.array(logits)
+        #print(np.array(logits), response)
+        return np.array(logits), response

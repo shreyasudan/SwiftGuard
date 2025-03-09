@@ -51,9 +51,9 @@ class LLM(abc.ABC):
         convs_list = [self.convert_prompt_to_conversation(p) for p in input_prompts]
 
         # Query the LLM
-        logits = self.query_llm_logit(convs_list)
+        logits, response = self.query_llm_logit(convs_list)
 
-        return logits
+        return logits, response
 
     def convert_prompt_to_conversation(self, prompt: str) -> list[dict[str, str]]:
         """Create a conversation dictionary containing the LLM-specific
