@@ -49,23 +49,23 @@ def calculate_logits(
 
     for model_name, behaviors_dict in prompts_dict.items():
         llm = llm_constructor(model_name=model_name)
-        logits =  generate_with_logits(
+        logits, response = generate_with_logits(
                     model_name=model_name, llm=llm, behavior_prompt_dict=behaviors_dict, defense=defense
                 )
 
-        file_path = os.path.join(save_path, f"{model_name}.npy")
+        #file_path = os.path.join(save_path, f"{model_name}.npy")
 
         
-        np.save(file_path, logits)
+        #np.save(file_path, logits)
 
         # Delete previous LLM; otherwise, we risk going OOM
         # when using vLLM since multiple models will be loaded
-        del llm
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
+        #del llm
+        #if torch.cuda.is_available():
+        #    torch.cuda.empty_cache()
             
     # Usually no return here, using this to look at logits.
-    return logits
+    return logits, response
 
 def generate_with_logits(
     model_name: str, llm: LLM, behavior_prompt_dict: dict[str, str], defense: str | None
@@ -75,5 +75,5 @@ def generate_with_logits(
     valid_prompts = [behavior_prompt_dict[beh] for beh in valid_behaviors]
 
     print(f"Querying responses for {model_name}.")
-    logits = llm._get_logits(valid_prompts, max_new_tokens=None, defense=defense)
-    return logits
+    logits, response = llm._get_logits(valid_prompts, max_new_tokens=None, defense=defense)
+    return logits, response
