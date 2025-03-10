@@ -26,13 +26,13 @@ cd ..
 pip install -r requirements.txt
 ```
 
-### **Step 4 Set OPENAI API KEY**
+### **Step 4: Set OPENAI API KEY**
 ```bash
 setx OPENAI_API_KEY "your_api_key_here"
 ```
 Close out of the terminal, and open a new one.
 Go to the SwiftGuard directory
-### **Step 5 Running classifier**
+### **Step 5: Running classifier**
 ```bash
 conda activate swiftguard
 python classify_jailbreak.py
