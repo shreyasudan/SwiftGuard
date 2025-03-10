@@ -38,28 +38,3 @@ conda activate swiftguard
 python classify_jailbreak.py
 ```
 Enter the prompt you want to classify as jailbroken or not. Model used is GPT-4o-mini.
-
-## Current Progress
-This repository currently has a few notebooks outlining progress made so far in the creation of SwiftGuard
-- [Prompt Dataset](#prompt-dataset)
-- [Prompt Exploration](#prompt-exploration)
-- [Transforming](#transforming)
-- [LLM Classifier](#llm-classifier)
-
-## Prompt Dataset
-This notebook used our PAIR algorithm to locate prompts that succcessfully jailbreak our target LLM. These prompts will be used throughout this repository to
-show what to look out for in a malicious prompt.
-
-## Prompt Exploration
-This notebook contains basic EDA, exploring semantic and syntantic features of the above prompt dataset. 
-
-## Transforming
-This notebook contains functions useful to apply transformations on existing prompts via an LLM.
-
-## LLM Classifier
-This notebook contains a preliminary classifier which sends prompts down an LLM to weed out obviously benign ones. 
-This classifier will determine which prompts get sent down the pipeline to further check its status. 
-
-
-### NOTE: 
-All jupyter notebooks can be accessed and ran locally with a togetherAI API key. To get more sucessfully jailbroken prompts, prompt dataset can be run again. Transforming and LLM Classifier both contain reproducable functions with built-in instructions. 
