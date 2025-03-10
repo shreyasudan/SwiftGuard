@@ -26,6 +26,18 @@ cd ..
 pip install -r requirements.txt
 ```
 
+### **Step 4 Set OPENAI API KEY**
+```bash
+setx OPENAI_API_KEY "your_api_key_here"
+```
+Close out of the terminal, and open a new one.
+Go to the SwiftGuard directory
+### **Step 5 Running classifier**
+```bash
+conda activate swiftguard
+python classify_jailbreak.py
+```
+Enter the prompt you want to classify as jailbroken or not. Model used is GPT-4o-mini.
 
 ## Current Progress
 This repository currently has a few notebooks outlining progress made so far in the creation of SwiftGuard
