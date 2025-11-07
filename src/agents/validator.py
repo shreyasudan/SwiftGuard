@@ -202,12 +202,10 @@ class ValidatorAgent:
                 state["schema_valid"] = False
                 state["validation_errors"].extend(schema_errors)
 
-        # Update agent trace
-        if "agent_trace" not in state:
-            state["agent_trace"] = []
-        state["agent_trace"].append(
+        # Update agent trace - for LangGraph annotated fields, return new items only
+        state["agent_trace"] = [
             f"validator (confidence={final_confidence:.2f}, valid={state['schema_valid']})"
-        )
+        ]
 
         # Update processing time
         processing_time = time.time() - start_time

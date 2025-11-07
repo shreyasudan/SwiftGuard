@@ -121,10 +121,8 @@ class AnalyzerAgent:
             state["semantic_analysis"] = {"skipped": True, "reason": "Prompt classified as SAFE"}
             state["embedding_similarity"] = None
 
-            # Update agent trace
-            if "agent_trace" not in state:
-                state["agent_trace"] = []
-            state["agent_trace"].append("analyzer (skipped - SAFE)")
+            # Update agent trace - for LangGraph annotated fields, return new items only
+            state["agent_trace"] = ["analyzer (skipped - SAFE)"]
 
             # Update processing time
             state["processing_time"] = state.get("processing_time", 0) + (time.time() - start_time)
@@ -159,12 +157,10 @@ class AnalyzerAgent:
         state["attack_patterns"] = combined_patterns
         state["embedding_similarity"] = similarity
 
-        # Update agent trace
-        if "agent_trace" not in state:
-            state["agent_trace"] = []
-        state["agent_trace"].append(
+        # Update agent trace - for LangGraph annotated fields, return new items only
+        state["agent_trace"] = [
             f"analyzer (similarity={similarity:.2f}, sophistication={llm_analysis['sophistication']})"
-        )
+        ]
 
         # Update processing time
         processing_time = time.time() - start_time

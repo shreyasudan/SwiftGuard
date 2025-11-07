@@ -169,10 +169,8 @@ class ResponseAgent:
             }
             state["recommended_action"] = "flag"
 
-            # Update agent trace
-            if "agent_trace" not in state:
-                state["agent_trace"] = []
-            state["agent_trace"].append("responder (error - validation failed)")
+            # Update agent trace - for LangGraph annotated fields, return new items only
+            state["agent_trace"] = ["responder (error - validation failed)"]
 
             return state
 
@@ -189,10 +187,8 @@ class ResponseAgent:
         state["security_response"] = security_response
         state["recommended_action"] = action
 
-        # Update agent trace
-        if "agent_trace" not in state:
-            state["agent_trace"] = []
-        state["agent_trace"].append(f"responder (action={action})")
+        # Update agent trace - for LangGraph annotated fields, return new items only
+        state["agent_trace"] = [f"responder (action={action})"]
 
         # Update processing time
         processing_time = time.time() - start_time
