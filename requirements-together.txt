@@ -1,0 +1,4 @@
+# Requirements for Together AI provider
+-r requirements-agentic.txt
+langchain-together>=0.1.0
+

@@ -1,0 +1,4 @@
+# Requirements for OpenAI provider
+-r requirements-agentic.txt
+# OpenAI is already included in base requirements
+

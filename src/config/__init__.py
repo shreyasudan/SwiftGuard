@@ -1,0 +1,17 @@
+"""Configuration module for AgenticGuard."""
+
+from .prompts import (
+    DETECTOR_PROMPT,
+    ANALYZER_PROMPT,
+    RESPONDER_PROMPT,
+    KNOWN_ADVERSARIAL_PROMPTS,
+    MALICIOUS_PATTERNS
+)
+
+__all__ = [
+    "DETECTOR_PROMPT",
+    "ANALYZER_PROMPT",
+    "RESPONDER_PROMPT",
+    "KNOWN_ADVERSARIAL_PROMPTS",
+    "MALICIOUS_PATTERNS"
+]
